@@ -13,6 +13,7 @@ public class Item implements Serializable {
     private String name;
     private String description;
     private int price;
+    private Boolean active;
 
     public void setId(Long id) {
         this.id = id;
@@ -45,5 +46,13 @@ public class Item implements Serializable {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

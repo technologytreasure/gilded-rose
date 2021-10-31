@@ -4,7 +4,8 @@ CREATE TABLE item (
       id            INT PRIMARY KEY AUTO_INCREMENT,
       name          VARCHAR(250)  NOT NULL,
       description   VARCHAR(250)  NOT NULL,
-      price         INT           NOT NULL
+      price         INT           NOT NULL,
+      active        BOOLEAN DEFAULT TRUE NOT NULL
 );
 
 CREATE TABLE views (
@@ -18,7 +19,7 @@ ALTER TABLE views ADD CONSTRAINT fk_view_item_constraint
     REFERENCES item(id)
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
-INSERT INTO item(name, description, price)
-VALUES ('Iphone 13', 'apple cellphone', 2500),
-('Smartwatch Galaxy', 'Smartwatch Samsung Galaxy Watch 3', 1350),
-('Echo Dot (3ª Generation)', 'Echo Dot (3ª Generation): Smart Speaker with Alexa', 200);
+INSERT INTO item(name, description, price, active)
+VALUES ('Iphone 13', 'apple cellphone', 2500, true),
+('Smartwatch Galaxy', 'Smartwatch Samsung Galaxy Watch 3', 1350, true),
+('Echo Dot (3ª Generation)', 'Echo Dot (3ª Generation): Smart Speaker with Alexa', 200, true);
