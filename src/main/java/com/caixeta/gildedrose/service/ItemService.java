@@ -12,9 +12,11 @@ import java.util.stream.Collectors;
 public class ItemService {
 
     private final ItemRepository itemRepository;
+    private final ViewsService viewsService;
 
-    public ItemService(ItemRepository itemRepository) {
+    public ItemService(ItemRepository itemRepository, ViewsService viewsService) {
         this.itemRepository = itemRepository;
+        this.viewsService = viewsService;
     }
 
     public List<ItemResponse> getAllItems() {
@@ -30,14 +32,16 @@ public class ItemService {
                 .findById(itemId)
                 .orElseThrow(() -> new EntityNotFoundException("Item not found"));
 
+        var quantityViewsItem = viewsService.insertNewView(item);
 
+        System.out.println("Quantidade de items: " + quantityViewsItem);
 
-        if (item.getViews() == 10) {
-            var increaseValue = (item.getPrice() * 100) / 10;
+        if (quantityViewsItem >= 10) {
+            var increaseValue = (item.getPrice() * 10) / 100;
             item.setPrice(item.getPrice() + increaseValue);
             itemRepository.save(item);
+            viewsService.deleteAllViewsByItemId(item.getId());
         }
-
         return new ItemResponse(item.getId(), item.getName(), item.getDescription(), item.getPrice());
     }
 

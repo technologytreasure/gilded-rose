@@ -7,13 +7,12 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "item")
-public class Item extends BaseEntity implements Serializable {
+public class Item implements Serializable {
 
     private Long id;
     private String name;
     private String description;
     private int price;
-    private int views;
 
     public void setId(Long id) {
         this.id = id;
@@ -46,13 +45,5 @@ public class Item extends BaseEntity implements Serializable {
 
     public void setPrice(int price) {
         this.price = price;
-    }
-
-    public int getViews() {
-        return views;
-    }
-
-    public void setViews(int views) {
-        this.views = views;
     }
 }
