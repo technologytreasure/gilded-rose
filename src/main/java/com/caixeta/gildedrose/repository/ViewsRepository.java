@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ViewsRepository extends JpaRepository<Views, Long> {
 
-    Long countAllByItemIdAndCreatedAtBetween(Long itemId, LocalDateTime initalDate, LocalDateTime finalDate);
+    Integer countAllByItemIdAndCreatedAtBetween(Long itemId, LocalDateTime initalDate, LocalDateTime finalDate);
 
     void deleteViewsByItemId(Long itemId);
 }

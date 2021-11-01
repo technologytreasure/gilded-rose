@@ -15,28 +15,29 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ViewsService {
+public class ViewsServiceImpl implements ViewService {
 
     private final ViewsRepository viewsRepository;
 
-    public ViewsService(ViewsRepository viewsRepository) {
+    public ViewsServiceImpl(ViewsRepository viewsRepository) {
         this.viewsRepository = viewsRepository;
     }
 
+    @Override
     @Transactional
-    public Long insertNewView(Item item) {
+    public void insertNewView(Item item) {
         var views = new Views();
         views.setItemId(item.getId());
         viewsRepository.save(views);
-
-        return findAllLastHourByItemId(item.getId());
     }
 
-    public Long findAllLastHourByItemId(Long itemId) {
+    @Override
+    public Integer findAllLastHourByItemId(Long itemId) {
         return viewsRepository
                 .countAllByItemIdAndCreatedAtBetween(itemId, LocalDateTime.now().minusHours(1), LocalDateTime.now());
     }
 
+    @Override
     @Transactional
     public void deleteAllViewsByItemId(Long itemId) {
         viewsRepository.deleteViewsByItemId(itemId);
