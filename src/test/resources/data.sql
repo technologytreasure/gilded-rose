@@ -24,7 +24,9 @@ ALTER TABLE views ADD CONSTRAINT fk_view_item_constraint
 
 INSERT INTO item(name, description, price, active)
 VALUES ('Item 01 Name', 'Item 01 Description', 200, true),
-       ('Item 02 Name', 'Item 02 Description', 50, false);
+       ('Item 02 Name', 'Item 02 Description', 50, false),
+       ('Item 03 Name', 'Item 03 Description', 135, true),
+       ('Item 04 Name', 'Item 04 Description', 500, true);
 
 INSERT INTO views(item_id, created_at)
 VALUES  (1L, CURRENT_TIMESTAMP),
@@ -36,4 +38,16 @@ VALUES  (1L, CURRENT_TIMESTAMP),
         (1L, CURRENT_TIMESTAMP),
         (1L, CURRENT_TIMESTAMP),
         (1L, CURRENT_TIMESTAMP),
-        (1L, CURRENT_TIMESTAMP);
+        (1L, CURRENT_TIMESTAMP),
+        (3L, CURRENT_TIMESTAMP),
+        (3L, CURRENT_TIMESTAMP),
+        (3L, CURRENT_TIMESTAMP),
+        (4L, CURRENT_TIMESTAMP - INTERVAL 1 HOUR),
+        (4L, CURRENT_TIMESTAMP - INTERVAL 2 HOUR),
+        (4L, CURRENT_TIMESTAMP),
+        (4L, CURRENT_TIMESTAMP),
+        (4L, CURRENT_TIMESTAMP),
+        (4L, CURRENT_TIMESTAMP),
+        (4L, CURRENT_TIMESTAMP),
+        (4L, CURRENT_TIMESTAMP),
+        (4L, CURRENT_TIMESTAMP);

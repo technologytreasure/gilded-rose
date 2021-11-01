@@ -22,4 +22,4 @@ ALTER TABLE views ADD CONSTRAINT fk_view_item_constraint
 INSERT INTO item(name, description, price, active)
 VALUES ('Iphone 13', 'apple cellphone', 2500, true),
 ('Smartwatch Galaxy', 'Smartwatch Samsung Galaxy Watch 3', 1350, true),
-('Echo Dot (3ª Generation)', 'Echo Dot (3ª Generation): Smart Speaker with Alexa', 200, true);
+('Echo Dot (3ª Generation)', 'Echo Dot (3ª Generation): Smart Speaker with Alexa', 200, false);

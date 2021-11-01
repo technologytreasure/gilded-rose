@@ -22,7 +22,7 @@ public class ItemService {
     }
 
     public List<ItemResponse> getAllItems() {
-        var items = itemRepository.findAll();
+        var items = itemRepository.findAllByActive(Boolean.TRUE);
         return items
                 .stream()
                 .map(item -> new ItemResponse(item.getId(), item.getName(), item.getDescription(), item.getPrice()))
@@ -45,20 +45,16 @@ public class ItemService {
 
     @Transactional
     public ItemResponse buyItem(Long itemId) {
-        try {
-            var item = findActiveItembyId(itemId);
-            item.setActive(Boolean.FALSE);
-            itemRepository.save(item);
-            return new ItemResponse(item.getId(), item.getName(), item.getDescription(), item.getPrice());
-        } catch(Exception e) {
-            throw new EntityNotFoundException("Item not found or not available!");
-        }
+        var item = findActiveItembyId(itemId);
+        item.setActive(Boolean.FALSE);
+        itemRepository.save(item);
+        return new ItemResponse(item.getId(), item.getName(), item.getDescription(), item.getPrice());
     }
 
     private Item findActiveItembyId(Long itemId) {
         return itemRepository
                 .findItemByIdAndActive(itemId, Boolean.TRUE)
-                .orElseThrow(() -> new EntityNotFoundException("Item not found"));
+                .orElseThrow(() -> new EntityNotFoundException());
     }
 
 }
