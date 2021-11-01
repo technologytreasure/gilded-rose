@@ -30,13 +30,8 @@ public class ItemController {
     }
 
     @PostMapping("/{itemId}/buy")
-    public ResponseEntity<String> buyItemById(@PathVariable Long itemId) {
-        try {
-            itemService.buyItem(itemId);
-        } catch(Exception e) {
-            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("Item not found or not available!");
-        }
-        return ResponseEntity.status(HttpStatus.OK).body("Item bought with success!");
+    public ResponseEntity<ItemResponse> buyItemById(@PathVariable Long itemId) {
+        return ResponseEntity.status(HttpStatus.OK).body(itemService.buyItem(itemId));
     }
 
 }

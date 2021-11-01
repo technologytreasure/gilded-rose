@@ -16,6 +16,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
                 .authorizeRequests()
                 .antMatchers("/h2/**").permitAll()
                 .antMatchers("/console-h2/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/v1/items/**").permitAll()
                 .anyRequest().authenticated().and().httpBasic();
         http.headers().frameOptions().sameOrigin();
     }

@@ -34,8 +34,6 @@ public class ItemService {
 
         var quantityViewsItem = viewsService.insertNewView(item);
 
-        System.out.println("Quantidade de items: " + quantityViewsItem);
-
         if (quantityViewsItem >= 10) {
             var increaseValue = (item.getPrice() * 10) / 100;
             item.setPrice(item.getPrice() + increaseValue);
@@ -46,10 +44,15 @@ public class ItemService {
     }
 
     @Transactional
-    public void buyItem(Long itemId) {
-        var item = findActiveItembyId(itemId);
-        item.setActive(Boolean.FALSE);
-        itemRepository.save(item);
+    public ItemResponse buyItem(Long itemId) {
+        try {
+            var item = findActiveItembyId(itemId);
+            item.setActive(Boolean.FALSE);
+            itemRepository.save(item);
+            return new ItemResponse(item.getId(), item.getName(), item.getDescription(), item.getPrice());
+        } catch(Exception e) {
+            throw new EntityNotFoundException("Item not found or not available!");
+        }
     }
 
     private Item findActiveItembyId(Long itemId) {
