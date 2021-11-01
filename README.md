@@ -11,12 +11,14 @@ Repository to store used code to do the task as part of UpWork selection
     - POST Buy a item by id
 - Only the buy endpoint requires to be authenticated
 - Every 10 views in a hour os same item, the price this item is increased in 10%
-- To simulate this situation, is necessary call the item by id endpoint to the same item more than 9 times in a hour
+- To simulate this situation, is necessary call the item by id endpoint to the 
+  same item more than 9 times in a hour
 ```
 
 ## Security
 ```
-- I did use a simple authentication with Spring Boot Security because I would want a simple way to authenticate the user
+- I did use a simple authentication with Spring Boot Security because I would want a 
+  simple way to authenticate the user
 - The username and password are fixed inside the code.
 - username: **admin**
 - password: **gildedrose**
@@ -24,7 +26,8 @@ Repository to store used code to do the task as part of UpWork selection
 
 ## Database
 ```
-- Was used the H2 Database, and has a file inside the resources folder named "data.sql" where are the scripts to create and insert values.
+- Was used the H2 Database, and has a file inside the resources folder named "data.sql" 
+  where are the scripts to create and insert values.
 - This script is executed when the application goes up
 ```
 
