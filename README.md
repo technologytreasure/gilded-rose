@@ -5,23 +5,23 @@ Repository to store used code to do the task as part of UpWork selection
 ## About
 ```
 - This project is did create to simulate the buy of items
-- Has three main endpoints:
+- There are three main endpoints:
     - GET all valid items (inventory)
     - GET specific item by id (to visualize that item)
     - POST Buy a item by id
 - Only the buy endpoint requires to be authenticated
 - Every 10 views in a hour os same item, the price this item is increased in 10%
-- To simulate this situation, is necessary call the item by id endpoint to the 
+- To simulate this situation, is necessary call the "item by id" endpoint to the 
   same item more than 9 times in a hour
 ```
 
 ## Security
 ```
-- I did use a simple authentication with Spring Boot Security because I would want a 
+- I did use a simple authentication with Spring Boot Security because I wanted a 
   simple way to authenticate the user
 - The username and password are fixed inside the code.
-- username: **admin**
-- password: **gildedrose**
+- username: admin
+- password: gildedrose
 ```
 
 ## Database
@@ -52,7 +52,7 @@ Java 11
 
 ##### To do the clone or download of project
 ```
-After downloading the project, access the root folder and to execute the commando to maven run
+After downloading the project, access the root folder and to execute the command to maven run
 - mvn clean install
 ```
 
