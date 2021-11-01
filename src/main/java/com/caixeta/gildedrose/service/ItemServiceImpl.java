@@ -36,7 +36,7 @@ public class ItemServiceImpl implements ItemService {
         var item = findActiveItemById(itemId);
 
         viewsService.insertNewView(item);
-        var quantityViewsItem = viewsService.findAllLastHourByItemId(item.getId());
+        var quantityViewsItem = viewsService.findCountViewsLastHourByItemId(item.getId());
 
         if (quantityViewsItem >= 10) {
             var increaseValue = (item.getPrice() * 10) / 100;

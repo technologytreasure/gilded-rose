@@ -1,7 +1,5 @@
-
 DROP TABLE if exists item cascade;
 DROP TABLE if exists views cascade;
-
 
 CREATE TABLE item (
       id            INT PRIMARY KEY AUTO_INCREMENT,

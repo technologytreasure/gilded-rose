@@ -93,7 +93,7 @@ public class ItemServiceTest {
 
         //when
         Mockito.when(itemRepository.findItemByIdAndActive(Mockito.eq(1L), Mockito.eq(Boolean.TRUE))).thenReturn(item);
-        Mockito.when(viewsService.findAllLastHourByItemId(1L)).thenReturn(10);
+        Mockito.when(viewsService.findCountViewsLastHourByItemId(1L)).thenReturn(10);
         var itemResponse = itemService.getItemById(1L);
 
         //then
