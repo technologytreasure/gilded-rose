@@ -1,4 +1,3 @@
-# README #
 # GILDED ROSE Task
 Repository to store used code to do the task as part of UpWork selection
 
@@ -27,7 +26,7 @@ Repository to store used code to do the task as part of UpWork selection
 ## Security
 ```
 - I did use a simple authentication with Spring Boot Security because I wanted a 
-  simple way to authenticate the user
+  simple way to authenticate the user.
 - The username and password are fixed inside the code.
 - username: admin
 - password: gildedrose
@@ -37,7 +36,7 @@ Repository to store used code to do the task as part of UpWork selection
 ```
 - Was used the H2 Database, and has a file inside the resources folder named "data.sql" 
   where are the scripts to create and insert values.
-- This script is executed when the application goes up
+- This script is executed when the application goes up.
 ```
 
 ## Architecture
@@ -70,7 +69,7 @@ Java 11
 
 ##### To do the clone or download of project
 ```
-After downloading the project, access the root folder and to execute the command to maven run
+After downloading the project, access the root folder and to execute the command to maven run.
 - mvn clean install
 ```
 
