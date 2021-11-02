@@ -26,7 +26,7 @@ public class ItemServiceImpl implements ItemService {
         var items = itemRepository.findAllByActive(Boolean.TRUE);
         return items
                 .stream()
-                .map(item -> new ItemResponse(item.getId(), item.getName(), item.getDescription(), item.getPrice()))
+                .map(item -> createNewItemResponse(item))
                 .collect(Collectors.toList());
     }
 
@@ -38,13 +38,10 @@ public class ItemServiceImpl implements ItemService {
         viewsService.insertNewView(item);
         var quantityViewsItem = viewsService.findCountViewsLastHourByItemId(item.getId());
 
-        if (quantityViewsItem >= 10) {
-            var increaseValue = (item.getPrice() * 10) / 100;
-            item.setPrice(item.getPrice() + increaseValue);
-            itemRepository.save(item);
-            viewsService.deleteAllViewsByItemId(item.getId());
-        }
-        return new ItemResponse(item.getId(), item.getName(), item.getDescription(), item.getPrice());
+        // business role
+        item = increaseProcessItem(quantityViewsItem, item);
+
+        return createNewItemResponse(item);
     }
 
     @Override
@@ -53,13 +50,27 @@ public class ItemServiceImpl implements ItemService {
         var item = findActiveItemById(itemId);
         item.setActive(Boolean.FALSE);
         itemRepository.save(item);
-        return new ItemResponse(item.getId(), item.getName(), item.getDescription(), item.getPrice());
+        return createNewItemResponse(item);
     }
 
     private Item findActiveItemById(Long itemId) {
         return itemRepository
                 .findItemByIdAndActive(itemId, Boolean.TRUE)
                 .orElseThrow(() -> new EntityNotFoundException());
+    }
+
+    private Item increaseProcessItem(Integer quantityViewsItem, Item item) {
+        if (quantityViewsItem >= 10) {
+            var increaseValue = (item.getPrice() * 10) / 100;
+            item.setPrice(item.getPrice() + increaseValue);
+            itemRepository.save(item);
+            viewsService.deleteAllViewsByItemId(item.getId());
+        }
+        return item;
+    }
+
+    private ItemResponse createNewItemResponse(Item item) {
+        return new ItemResponse(item.getId(), item.getName(), item.getDescription(), item.getPrice());
     }
 
 }

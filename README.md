@@ -15,6 +15,15 @@ Repository to store used code to do the task as part of UpWork selection
   same item more than 9 times in a hour
 ```
 
+## Business Role
+```
+- To attend the business role, was create a logical that store the all visualizations of an item. 
+  Every call to get item by id through endpoint, is checked if that item has ten or more views in
+  the last hour.
+- When it happens, the price of this item is increased in 10 percent.
+- After this, all visualizations this item is removed and the count is reseted.
+```
+
 ## Security
 ```
 - I did use a simple authentication with Spring Boot Security because I wanted a 
@@ -32,7 +41,6 @@ Repository to store used code to do the task as part of UpWork selection
 ```
 
 ## Architecture
-
 ```
 - Java 11
 - Spring Boot
@@ -40,6 +48,16 @@ Repository to store used code to do the task as part of UpWork selection
 - Unit Test with Junit/Mockito
 - H2 Memory Database
 - Spring Security to make the Authorization (basic auth)
+```
+
+## Estructure
+```
+- To this project was create a structure that I have been used in my last projects seemed like this.
+- This structure respect that main layers (controller, service and repository) and the business rule
+  are concentrated in the service, decoupled by an interface.
+- The spring anotations was used in these layers.
+- A simple response object was also created to return the items.
+- The repositories were mapped using Spring Data JPA.
 ```
 
 ## Instructions to run the project
