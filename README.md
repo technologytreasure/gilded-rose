@@ -75,7 +75,8 @@ Repository to store used code to do the task as part of UpWork selection
 ##### Instructions to run
 ```
 - To do the clone or download of project
-- After downloading the project, access the root folder and execute the command to maven build the package.
+- After downloading the project, access the root folder and execute the command to maven 
+  build the package.
 --> mvn clean install
 ```
 
