@@ -3,32 +3,32 @@ Repository to store used code to do the task as part of UpWork selection
 
 ## About
 ```
-- This project is did create to simulate the buy of items
+- This project was created to simulate the buy of items.
 - There are three main endpoints:
-    - GET all valid items (inventory)
-    - GET specific item by id (to visualize that item)
-    - POST Buy a item by id
-- Only the buy endpoint requires to be authenticated
-- Every 10 views in a hour os same item, the price this item is increased in 10%
+    - Inventory      --> GET all valid items
+    - Visualize Item --> GET item by id
+    - Buy Item       --> POST Buy item by id
+- Only the buy endpoint requires to be authenticated.
+- Every 10 views in a hour to the same item, the price this item is increased in 10%.
 - To simulate this situation, is necessary call the "item by id" endpoint to the 
-  same item more than 9 times in a hour
+  same item more than 9 times in a hour.
 ```
 
 ## Business Role
 ```
-- To attend the business role, was create a logical that store the all visualizations of 
+- To attend the business role, was created a logical that store the all visualizations of 
   an item. 
 - Every call to get item by id through endpoint, is checked if that item has ten or 
   more views in the last hour.
 - When it happens, the price of this item is increased in 10 percent.
 - After this, all visualizations this item is removed and the count is reseted.
-- When an Item is purchased, then this item will no longer be available for viewing or 
+- When an item is purchased, then this item will no longer be available for viewing or 
   purchase after.
 ```
 
 ## Security
 ```
-- I did use a simple authentication with Spring Boot Security because I wanted a 
+- I used a simple authentication with Spring Boot Security because I wanted a 
   simple way to authenticate the user.
 - The username and password are fixed inside the code.
 - username: admin
@@ -54,7 +54,7 @@ Repository to store used code to do the task as part of UpWork selection
 
 ## Estructure
 ```
-- To this project was create a structure that I have been used in my last projects 
+- To this project was created a structure that I have been used in my last projects 
   seemed like this.
 - This structure respect that main layers (controller, service and repository) and 
   the business rule are concentrated in the service, decoupled by an interface.
@@ -65,7 +65,6 @@ Repository to store used code to do the task as part of UpWork selection
 
 ## Instructions to run the project
 
-
 #### Prerequisite
 ```
 - Java 11
@@ -74,9 +73,9 @@ Repository to store used code to do the task as part of UpWork selection
 
 ##### Instructions to run
 ```
-- To do the clone or download of project
+- To do the clone or download of project.
 - After downloading the project, access the root folder and execute the command to maven 
-  build the package.
+  build the package:
 --> mvn clean install
 ```
 
