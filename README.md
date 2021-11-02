@@ -16,11 +16,14 @@ Repository to store used code to do the task as part of UpWork selection
 
 ## Business Role
 ```
-- To attend the business role, was create a logical that store the all visualizations of an item. 
-  Every call to get item by id through endpoint, is checked if that item has ten or more views in
-  the last hour.
+- To attend the business role, was create a logical that store the all visualizations of 
+  an item. 
+- Every call to get item by id through endpoint, is checked if that item has ten or 
+  more views in the last hour.
 - When it happens, the price of this item is increased in 10 percent.
 - After this, all visualizations this item is removed and the count is reseted.
+- When an Item is purchased, then this item will no longer be available for viewing or 
+  purchase after.
 ```
 
 ## Security
@@ -51,9 +54,10 @@ Repository to store used code to do the task as part of UpWork selection
 
 ## Estructure
 ```
-- To this project was create a structure that I have been used in my last projects seemed like this.
-- This structure respect that main layers (controller, service and repository) and the business rule
-  are concentrated in the service, decoupled by an interface.
+- To this project was create a structure that I have been used in my last projects 
+  seemed like this.
+- This structure respect that main layers (controller, service and repository) and 
+  the business rule are concentrated in the service, decoupled by an interface.
 - The spring anotations was used in these layers.
 - A simple response object was also created to return the items.
 - The repositories were mapped using Spring Data JPA.
@@ -64,23 +68,25 @@ Repository to store used code to do the task as part of UpWork selection
 
 #### Prerequisite
 ```
-Java 11
+- Java 11
+- Maven
 ```
 
-##### To do the clone or download of project
+##### Instructions to run
 ```
-After downloading the project, access the root folder and to execute the command to maven run.
-- mvn clean install
+- To do the clone or download of project
+- After downloading the project, access the root folder and execute the command to maven build the package.
+--> mvn clean install
 ```
 
 #### Run the project with Spring Boot Embedded Server (by default, will use 8080 port)
 ```
-mvn spring-boot:run
+--> mvn spring-boot:run
 ```
 
 #### Examples of datas
 ```
-GET /v1/items
+GET /v1/items (Inventory)
 HttpStatus: 200
 [
     {
@@ -100,7 +106,7 @@ HttpStatus: 200
 ```
 
 ```
-GET /v1/items/{itemId}
+GET /v1/items/{itemId} (View an Item)
 HttpStatus: 200
     {
         "id": 1,
@@ -111,7 +117,7 @@ HttpStatus: 200
 ```
 
 ```
-POST /v1/items/{itemId}/buy 
+POST /v1/items/{itemId}/buy (Buy an Item)
 header ==> 'Authorization: Basic YWRtaW46Z2lsZGVkcm9zZQ=='
 HttpStatus: 200
     {
