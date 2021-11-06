@@ -52,10 +52,8 @@ Repository to store used code to do the task as part of UpWork selection
 - Spring Security to make the Authorization (basic auth)
 ```
 
-## Estructure
+## Structure
 ```
-- To this project was created a structure that I have been used in my last projects 
-  seemed like this.
 - This structure respect that main layers (controller, service and repository) and 
   the business rule are concentrated in the service, decoupled by an interface.
 - The spring anotations was used in these layers.
